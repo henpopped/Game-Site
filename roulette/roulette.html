@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/roulette/roulette.css">
@@ -11,12 +13,23 @@
             <div class='selector'></div>
             <div class='wheel'></div>
         </div>
-        <div class='controls'>
-            <input class='outcome-input' placeholder='Outcome'>
-            <button class='spin-button'>
-                Spin Wheel
-            </button>
+        <div class="balance">
+            <span class="balance-label">Balance:</span>
+            <span class="balance-amount" id="current-balance">$1000</span> 
         </div>
+        <div class="bet-amount">
+            <input class="bet-input" placeholder="Enter Bet Amount">
+            <button class="bet-button" id="place-bet-button">Place Bet</button>
+        </div>    
+        <div class="roulette-betting">
+            <div class="roulette-betting">
+                <div class="betting-options">
+                    <button class="bet-type red" data-type="red">Red (x2)</button>
+                    <button class="bet-type black" data-type="black">Black (x2)</button>
+                    <button class="bet-type green" data-type="green">Green (x14)</button>
+                </div>
+            </div>            
+        </div>        
     </div>
     <script src="/roulette/roulette.js"></script>
 </body>

@@ -1,60 +1,227 @@
-body{
-    font-family: 'Titillium Web', sans-serif;
-    background:#191B28;
-  }
-  
-  .roulette-wrapper{
-    position:relative;
-    display:flex;
-    justify-content:center;
-    width:100%;
-    margin:0 auto;
-    overflow:hidden;
-  }
-  
-  .roulette-wrapper .selector{
-    width:3px;
-    background:grey;
-    left:50%;
-    height:100%;
-    transform:translate(-50%,0%);
-    position:absolute;
-    z-index:2;
-  }
-  
-  .roulette-wrapper .wheel{
-    display:flex;
-  }
-  
-  .roulette-wrapper .wheel .row{
-    display:flex;
-  }
-  
-  .roulette-wrapper .wheel .row .card{
-    height:75px;
-    width:75px;
-    margin:3px;
-    border-radius:8px;
-    border-bottom:3px solid rgba(0,0,0,0.2);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-    font-size:1.5em;
-  }
-  
-  .card.red{
-    background:#F95146;
-  }
-  
-  .card.black{
-    background:#2D3035;
-  }
-  
-  .card.green{
-    background:#00C74D;
-  }
-  
-  *{
-    box-sizing:border-box;
-  }
+body {
+  font-family: 'Titillium Web', sans-serif;
+  background: #191B28;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+body {
+  font-family: 'Titillium Web', sans-serif;
+  background: #191B28;
+  margin: 0;
+  padding: 0;
+}
+
+.roulette-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.roulette-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.roulette-wrapper .selector {
+  width: 3px;
+  background: grey;
+  left: 50%;
+  height: 100%;
+  transform: translate(-50%, 0%);
+  position: absolute;
+  z-index: 2;
+}
+
+.roulette-wrapper .wheel {
+  display: flex;
+  margin-top: 20px;
+}
+
+.roulette-wrapper .wheel .row {
+  display: flex;
+}
+
+.roulette-wrapper .wheel .row .card {
+  height: 75px;
+  width: 75px;
+  margin: 3px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card.red {
+  background: linear-gradient(135deg, #bb2e24, #ff0008); /* Red */
+}
+
+.card.black {
+  background: linear-gradient(135deg, #1c1d20, #000); /* Black */
+}
+
+.card.green {
+  background: linear-gradient(135deg, #0aee61, #01cc52); /* Green */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+.outcome-input {
+  padding: 10px;
+  font-size: 1em;
+  border: 2px solid #2D3035;
+  border-radius: 5px;
+  width: 250px;
+  margin-right: 10px;
+}
+
+.spin-button {
+  padding: 10px 20px;
+  background: #00C74D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.balance {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: white;
+}
+
+.balance-label {
+  margin-right: 10px;
+}
+
+.balance-amount {
+  font-weight: bold;
+}
+
+/* Styles for the enhanced betting interface */
+
+.roulette-betting {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.betting-options {
+  margin-bottom: 10px;
+}
+
+.bet-type {
+  padding: 10px 20px;
+  background: #2D3035;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.bet-type:hover {
+  background: #00C74D;
+}
+
+.bet-amount {
+  margin-top: 10px;
+}
+
+.bet-input {
+  padding: 10px;
+  font-size: 1em;
+  border: 2px solid #2D3035;
+  border-radius: 5px;
+  width: 250px;
+  margin-right: 10px;
+}
+
+.bet-button {
+  padding: 10px 20px;
+  background: #00C74D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.bet-button:hover {
+  background: #008C37;
+}
+
+/* Red button hover state */
+.bet-type.red:hover,
+.bet-type.red.selected {
+  background: linear-gradient(135deg, #bb2e24, #ff0008); /* Red gradient */
+}
+
+/* Black button hover state */
+.bet-type.black:hover,
+.bet-type.black.selected {
+  background: linear-gradient(135deg, #1c1d20, #000); /* Black gradient */
+}
+
+/* Green button hover state */
+.bet-type.green:hover,
+.bet-type.green.selected {
+  background: linear-gradient(135deg, #11c255, #0caa4b); /* Green gradient */
+}
+
+/* Center the betting options */
+.betting-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Add margin to the betting options container */
+.betting-options {
+  margin-bottom: 10px;
+  margin-top: 10px; /* Add margin-top to center the betting options vertically */
+}
+
+html, body {
+  overflow: hidden; /* This hides any scroll bars */
+  height: 100%; /* Make sure both HTML and body are 100% height */
+  margin: 0; /* Remove any default margins */
+  padding: 0; /* Remove any default padding */
+}
+
+/* Ensure elements don't exceed viewport width */
+.roulette-container {
+  max-width: 100%; /* Set a maximum width for your container */
+}
+
+/* Ensure elements don't exceed viewport height */
+.roulette-container {
+  max-height: 100%; /* Set a maximum height for your container */
+  overflow-y: auto; /* If content exceeds the height, it will become scrollable within the container */
+}

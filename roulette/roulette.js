@@ -1,17 +1,31 @@
 $(document).ready(function() {
-	//setup multiple rows of colours, can also add and remove while spinning but overall this is easier.
-	initWheel();
- 
- 	$('button').on('click', function(){
-		var outcome = parseInt($('input').val());
-    spinWheel(outcome);
+  // Initialize the wheel
+  initWheel();
+
+  // Event listener specifically for the 'Place Bet' button
+  $('#place-bet-button').on('click', function() {
+      // Check if a bet type is selected before spinning the wheel
+      if ($('.bet-type.selected').length > 0) {
+          var outcome = parseInt($('.bet-input').val());
+          spinWheel(outcome);
+      }
+  });
+
+  // Event listener for bet type buttons
+  $('.bet-type').click(function() {
+      // Check if the button is already selected
+      if (!$(this).hasClass('selected')) {
+          // Deselect other bet-type buttons and select the clicked one
+          $('.bet-type').removeClass('selected');
+          $(this).addClass('selected');
+      }
   });
 });
 
-function initWheel(){
-	var $wheel = $('.roulette-wrapper .wheel'),
-  		row = "";
-      
+function initWheel() {
+  var $wheel = $('.roulette-wrapper .wheel'),
+      row = "";
+
   row += "<div class='row'>";
   row += "  <div class='card red'>1<\/div>";
   row += "  <div class='card black'>14<\/div>";
@@ -29,7 +43,7 @@ function initWheel(){
   row += "  <div class='card red'>7<\/div>";
   row += "  <div class='card black'>8<\/div>";
   row += "<\/div>";
-  
+
 	for(var x = 0; x < 29; x++){
   	$wheel.append(row);
   }
@@ -37,7 +51,7 @@ function initWheel(){
 
 function spinWheel() {
   var $wheel = $('.roulette-wrapper .wheel'),
-      order = [0, 11, 5, 10, 6, 9, 7, 8, 1, 14, 2, 13, 3, 12, 4];
+      order = [0, 8, 5, 7, 6, 9, 4, 10, 3, 11, 2, 12, 1, 13, 14];
             
   // Generate a random outcome (roll) between 0 and 14
   var roll = Math.floor(Math.random() * 15);
