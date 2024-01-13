@@ -5,74 +5,68 @@ body {
     margin: 0;
     padding: 0;
     color: #fff;
+    display: flex; /* Add flex display */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    min-height: 100vh; /* Minimum height to take full viewport height */
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 36px;
     color: #ff5e3a;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
-.game-container {
+.game-container, .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-}
-
-.container {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    justify-content: center; /* This ensures content in the container is centered */
 }
 
 .hand {
     border: 2px solid #ff5e3a;
     background-color: #1e272e;
-    padding: 20px;
-    margin: 20px;
+    padding: 15px; /* Reduced from 20px */
+    margin: 15px; /* Reduced from 20px */
     text-align: center;
     border-radius: 15px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6);
 }
 
 .hand h2 {
-    font-size: 36px;
+    font-size: 28px; /* Reduced from 36px */
     color: #ff5e3a;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 8px; /* Reduced from 10px */
 }
 
 .hand-cards {
-    font-size: 32px;
-    margin-top: 20px;
+    font-size: 24px; /* Reduced from 32px */
+    margin-top: 15px; /* Reduced from 20px */
     letter-spacing: 1px;
     color: #fff;
 }
 
 .hand-value {
-    font-size: 28px;
-    margin-top: 20px;
+    font-size: 22px; /* Reduced from 28px */
+    margin-top: 15px; /* Reduced from 20px */
     font-weight: bold;
     color: #e74c3c;
 }
 
 .message {
-    font-size: 36px;
-    margin-top: 30px;
+    font-size: 28px; /* Reduced from 36px */
+    margin-top: 20px; /* Reduced from 30px */
     color: #ff5e3a;
 }
 
 .btn {
-    font-size: 24px;
-    padding: 14px 28px;
-    margin: 15px;
+    font-size: 20px; /* Reduced from 24px */
+    padding: 10px 24px; /* Reduced padding */
+    margin: 12px; /* Reduced from 15px */
     cursor: pointer;
     background-color: #ff5e3a;
     color: #fff;

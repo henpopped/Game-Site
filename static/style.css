@@ -1,25 +1,26 @@
-/* Global Styles */
+/* Use this body style for all three pages */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(180deg, #2d3436 0%, #4a90e2 100%);
+    font-family: 'Arial', sans-serif; /* or 'Titillium Web', sans-serif; based on preference */
+    text-align: center;
+    background-color: #0c0c0c; /* or any common color you prefer */
     margin: 0;
     padding: 0;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    color: #fff;
+    min-height: 100vh;
 }
 
+/* Use this container style for all three pages */
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* This centers the content vertically */
     text-align: center;
-    width: 80%;
-    max-width: 1200px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    border-radius: 10px;
-    position: relative;
+    margin-top: 20px; /* or adjust based on your layout */
+    width: 100%; /* Ensures the container takes full width */
 }
 
 /* Header Styles */

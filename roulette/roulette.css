@@ -1,21 +1,28 @@
+/* Use this body style for all three pages */
 body {
-  font-family: 'Titillium Web', sans-serif;
-  background: #191B28;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    font-family: 'Arial', sans-serif; /* or 'Titillium Web', sans-serif; based on preference */
+    text-align: center;
+    background-color: #0c0c0c; /* or any common color you prefer */
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
+/* Use this container style for all three pages */
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* This centers the content vertically */
+    text-align: center;
+    margin-top: 20px; /* or adjust based on your layout */
+    width: 100%; /* Ensures the container takes full width */
 }
+
 
 body {
   font-family: 'Titillium Web', sans-serif;
