@@ -1,28 +1,25 @@
-/* Use this body style for all three pages */
 body {
-    font-family: 'Arial', sans-serif; /* or 'Titillium Web', sans-serif; based on preference */
-    text-align: center;
-    background-color: #0c0c0c; /* or any common color you prefer */
-    margin: 0;
-    padding: 0;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  background-color: #0c0c0c;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-/* Use this container style for all three pages */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* This centers the content vertically */
-    text-align: center;
-    margin-top: 20px; /* or adjust based on your layout */
-    width: 100%; /* Ensures the container takes full width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
 }
-
 
 body {
   font-family: 'Titillium Web', sans-serif;
@@ -79,15 +76,15 @@ body {
 }
 
 .card.red {
-  background: linear-gradient(135deg, #bb2e24, #ff0008); /* Red */
+  background: linear-gradient(135deg, #bb2e24, #ff0008);
 }
 
 .card.black {
-  background: linear-gradient(135deg, #1c1d20, #000); /* Black */
+  background: linear-gradient(135deg, #1c1d20, #000);
 }
 
 .card.green {
-  background: linear-gradient(135deg, #0aee61, #01cc52); /* Green */
+  background: linear-gradient(135deg, #0aee61, #01cc52);
 }
 
 * {
@@ -130,8 +127,6 @@ body {
 .balance-amount {
   font-weight: bold;
 }
-
-/* Styles for the enhanced betting interface */
 
 .roulette-betting {
   text-align: center;
@@ -184,51 +179,35 @@ body {
   background: #008C37;
 }
 
-/* Red button hover state */
 .bet-type.red:hover,
 .bet-type.red.selected {
-  background: linear-gradient(135deg, #bb2e24, #ff0008); /* Red gradient */
+  background: linear-gradient(135deg, #bb2e24, #ff0008);
 }
 
-/* Black button hover state */
 .bet-type.black:hover,
 .bet-type.black.selected {
-  background: linear-gradient(135deg, #1c1d20, #000); /* Black gradient */
+  background: linear-gradient(135deg, #1c1d20, #000);
 }
 
-/* Green button hover state */
 .bet-type.green:hover,
 .bet-type.green.selected {
-  background: linear-gradient(135deg, #11c255, #0caa4b); /* Green gradient */
+  background: linear-gradient(135deg, #11c255, #0caa4b);
 }
 
-/* Center the betting options */
 .betting-options {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Add margin to the betting options container */
 .betting-options {
   margin-bottom: 10px;
-  margin-top: 10px; /* Add margin-top to center the betting options vertically */
+  margin-top: 10px;
 }
 
 html, body {
-  overflow: hidden; /* This hides any scroll bars */
-  height: 100%; /* Make sure both HTML and body are 100% height */
-  margin: 0; /* Remove any default margins */
-  padding: 0; /* Remove any default padding */
-}
-
-/* Ensure elements don't exceed viewport width */
-.roulette-container {
-  max-width: 100%; /* Set a maximum width for your container */
-}
-
-/* Ensure elements don't exceed viewport height */
-.roulette-container {
-  max-height: 100%; /* Set a maximum height for your container */
-  overflow-y: auto; /* If content exceeds the height, it will become scrollable within the container */
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
