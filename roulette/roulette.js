@@ -9,10 +9,18 @@ $(document).ready(function() {
     if (!isSpinning && $('.bet-type.selected').length > 0) {
       betType = $('.bet-type.selected').data('type');
       betAmount = parseInt($('.bet-input').val());
+
       if (isNaN(betAmount) || betAmount <= 0) {
         alert('Please enter a valid bet amount.');
         return;
       }
+
+      let currentBalance = parseInt($('#current-balance').text().replace('$', ''));
+      if (betAmount > currentBalance) {
+        alert('You cannot bet more than your current balance.');
+        return;
+      }
+
       updateBalance(-betAmount);
       spinWheel();
     }
@@ -86,8 +94,8 @@ function spinWheel() {
 
     let result = order[position];
     calculateWinnings(result);
-    isSpinning = false;  // Set spinning state to false
-    enableInteraction();  // Re-enable interaction
+    isSpinning = false;  
+    enableInteraction();  
   }, 6500); 
 }
 
