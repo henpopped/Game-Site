@@ -106,11 +106,15 @@ function getColorForNumber(number) {
 function calculateWinnings(result) {
   let color = getColorForNumber(result);
   let winningMultiplier = 0;
-  
-  if (result === 0 && betType === 'green') {
-    winningMultiplier = 14;
+
+  if (result === 0) {
+    if (betType === 'green') {
+      winningMultiplier = 14;
+    } else {
+      winningMultiplier = 0;   
+    }
   } else if ((result % 2 === 0 && betType === 'black') || (result % 2 !== 0 && betType === 'red')) {
-    winningMultiplier = 2;
+    winningMultiplier = 2;  
   }
 
   let winnings = betAmount * winningMultiplier;
