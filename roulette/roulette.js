@@ -1,11 +1,12 @@
 let betType = '';
 let betAmount = 0;
+let isSpinning = false;
 
 $(document).ready(function() {
   initWheel();
 
   $('#place-bet-button').on('click', function() {
-    if ($('.bet-type.selected').length > 0) {
+    if (!isSpinning && $('.bet-type.selected').length > 0) {
       betType = $('.bet-type.selected').data('type');
       betAmount = parseInt($('.bet-input').val());
       if (isNaN(betAmount) || betAmount <= 0) {
@@ -18,7 +19,7 @@ $(document).ready(function() {
   });
 
   $('.bet-type').click(function() {
-    if (!$(this).hasClass('selected')) {
+    if (!isSpinning && !$(this).hasClass('selected')) {
       $('.bet-type').removeClass('selected');
       $(this).addClass('selected');
     }
@@ -53,6 +54,8 @@ function initWheel() {
 }
 
 function spinWheel() {
+  isSpinning = true;  // Set spinning state to true
+  disableInteraction();
   var $wheel = $('.roulette-wrapper .wheel'),
       order = [0, 11, 5, 10, 6, 9, 7, 8, 1, 14, 2, 13, 3, 12];
 
@@ -83,6 +86,8 @@ function spinWheel() {
 
     let result = order[position];
     calculateWinnings(result);
+    isSpinning = false;  // Set spinning state to false
+    enableInteraction();  // Re-enable interaction
   }, 6500); 
 }
 
@@ -111,4 +116,19 @@ function calculateWinnings(result) {
   let winnings = betAmount * winningMultiplier;
   updateBalance(winnings);
   alert('The spin lands on: ' + result + ' (' + color + '). You ' + (winnings > 0 ? 'win ' : 'lose ') + '$' + winnings);
+}
+
+function disableInteraction() {
+  $('#place-bet-button').prop('disabled', true);
+  $('.bet-type').off('click');
+}
+
+function enableInteraction() {
+  $('#place-bet-button').prop('disabled', false);
+  $('.bet-type').click(function() {
+    if (!$(this).hasClass('selected')) {
+      $('.bet-type').removeClass('selected');
+      $(this).addClass('selected');
+    }
+  });
 }
