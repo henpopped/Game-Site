@@ -4,47 +4,34 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
 }
 
 .navbar {
-    background-color: #3498db;
+    background-color: #333;
     color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    width: 100%;
+    padding: 10px 0;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
-}
-
-.nav-links {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.nav-links li {
-    margin: 0 10px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #76df20;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px; /* Added letter spacing for a modern touch */
 }
 
 .menu-toggle {
@@ -61,21 +48,38 @@ body {
     transition: transform 0.3s, opacity 0.3s;
 }
 
-.menu-open .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.menu-open .bar:nth-child(2) {
-    opacity: 0;
+.nav-links li {
+    margin: 0 20px;
 }
 
-.menu-open .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 18px; /* Slightly reduced font size */
+}
+
+.nav-links a:hover {
+    color: #76df20;
 }
 
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
+    }
+
+    .navbar.active {
+        background-color: #76df20;
     }
 
     .nav-links {
@@ -84,7 +88,7 @@ body {
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: #3498db;
+        background-color: #333;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
         padding: 10px;
         z-index: 1;
