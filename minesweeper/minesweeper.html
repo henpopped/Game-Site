@@ -9,28 +9,32 @@
 </head>
 <body>
     <div class="navbar">
-        <body>
-            <nav class="navbar">
-                <div class="logo">Joey's Coding Games Hub</div>
-                <ul class="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/minesweeper/minesweeper.html">Minesweeper</a></li>
-                    <li><a href="/roulette/roulette.html">Roulette</a></li>
-                    <li><a href="/blackjack/blackjack.html">Blackjack</a></li>
-                </ul>
-                <div class="menu-toggle">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
-            </nav>
-        
-            <script src="navbar.js"></script>
-        </body>
+        <nav class="navbar">
+            <div class="logo">Joey's Coding Games Hub</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/minesweeper/minesweeper.html">Minesweeper</a></li>
+                <li><a href="/roulette/roulette.html">Roulette</a></li>
+                <li><a href="/blackjack/blackjack.html">Blackjack</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
     </div>
     <div class="container">
-        <h1 class="title">Minesweeper Game</h1>
         <div id="gameBoard">
+        </div>
+        <hr>
+        <div class="difficulty-buttons">
+            <button id="easy-button" class="easydifficulty-button">Easy</button>
+            <button id="medium-button" class="meddifficulty-button">Medium</button>
+            <button id="hard-button" class="harddifficulty-button">Hard</button>
+        </div>
+        <div>
+            <button id="reset-button" class="reset-button">Reset Board</button>
         </div>
     </div>
     <script src="/minesweeper/minesweeper.js"></script>

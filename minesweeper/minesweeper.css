@@ -1,8 +1,66 @@
+/* Add styles for difficulty buttons */
+.difficulty-buttons {
+    margin-bottom: 20px;
+}
+
+.easydifficulty-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #47f741;
+    color: #ffffff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.meddifficulty-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #17e4c2;
+    color: #ffffff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.harddifficulty-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #ff4747;
+    color: #ffffff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.difficulty-button:hover {
+    background-color: #555;
+}
+
+.reset-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #ffbf47;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+/* Rest of your existing CSS remains unchanged */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,6 +117,10 @@ body {
 
 .cell.flag {
     color: #5bc0de;
+}
+
+.mine-trigger {
+    background-color: red; /* Or any other styling you prefer */
 }
 
 .number-1 { color: blue; }
