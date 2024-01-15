@@ -119,15 +119,20 @@ function calculateWinnings(result) {
     if (betType === 'green') {
       winningMultiplier = 14;
     } else {
-      winningMultiplier = 0;   
+      winningMultiplier = 0; // Losing condition
     }
   } else if ((result % 2 === 0 && betType === 'black') || (result % 2 !== 0 && betType === 'red')) {
-    winningMultiplier = 2;  
+    winningMultiplier = 2; // Winning condition
   }
 
-  let winnings = betAmount * winningMultiplier;
-  updateBalance(winnings);
-  alert('The spin lands on: ' + result + ' (' + color + '). You ' + (winnings > 0 ? 'win ' : 'lose ') + '$' + winnings);
+  if (winningMultiplier === 0) {
+    updateBalance(-betAmount);
+    alert('The spin lands on: ' + result + ' (' + color + '). You lose $' + betAmount);
+  } else {
+    let winnings = betAmount * winningMultiplier;
+    updateBalance(winnings);
+    alert('The spin lands on: ' + result + ' (' + color + '). You win $' + winnings);
+  }
 }
 
 function disableInteraction() {
