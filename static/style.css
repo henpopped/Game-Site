@@ -114,6 +114,10 @@ h1 {
     color: #3498db;
 }
 
+.unclickable-heading {
+    user-select: none;
+}
+
 #particles-js {
     position: fixed;
     top: 0;

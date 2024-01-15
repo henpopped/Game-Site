@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     particlesJS('particles-js', {
         particles: {
             number: {
-                value: 150,
+                value: 330,
                 density: {
                     enable: true,
                     value_area: 1000
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
             },
             opacity: {
-                value: 0.5,
+                value: 1.25,
                 random: false,
                 anim: {
                     enable: true,
@@ -29,25 +29,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             },
             size: {
-                value: 5,
+                value: 2,
                 random: true,
                 anim: {
                     enable: false,
-                    speed: 40,
+                    speed: 60,
                     size_min: 0.1,
                     sync: false
                 }
             },
             line_linked: {
                 enable: true,
-                distance: 150,
+                distance: 75,
                 color: "#ffffff",
                 opacity: 0.4,
                 width: 1
             },
             move: {
                 enable: true,
-                speed: 3,
+                speed: 1,
                 direction: "none",
                 random: false,
                 straight: false,
@@ -75,15 +75,15 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             modes: {
                 bubble: {
-                    distance: 250,
+                    distance: 50,
                     size: 8,
                     duration: 2,
                     opacity: 0.8,
                     speed: 3
                 },
                 repulse: {
-                    distance: 200,
-                    duration: 0.4
+                    distance: 90,
+                    duration: 5
                 }
             }
         },
