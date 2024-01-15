@@ -126,7 +126,6 @@ function calculateWinnings(result) {
   }
 
   if (winningMultiplier === 0) {
-    updateBalance(-betAmount);
     alert('The spin lands on: ' + result + ' (' + color + '). You lose $' + betAmount);
   } else {
     let winnings = betAmount * winningMultiplier;
