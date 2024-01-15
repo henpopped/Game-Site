@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let gameLost = false; // Flag to track game status
 
     const difficulties = {
-        easy: { size: 8, mines: 10 },
-        medium: { size: 12, mines: 20 },
-        hard: { size: 16, mines: 40 }
+        easy: { size: 8, mines: 8 },
+        medium: { size: 12, mines: 16 },
+        hard: { size: 14, mines: 32 }
     };
 
     function initGame(difficulty) {
