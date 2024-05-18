@@ -121,6 +121,7 @@ body {
 
 .mine-trigger {
     background-color: red; /* Or any other styling you prefer */
+    color: white; /* Ensure the mine icon is visible */
 }
 
 .number-1 { color: blue; }

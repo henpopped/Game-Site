@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     let boardSize, mineCount;
     let board, gameBoard, revealedCount;
-    let currentDifficulty = 'easy'; 
-    let gameLost = false; 
+    let currentDifficulty = 'easy';
+    let gameLost = false;
 
     const difficulties = {
         easy: { size: 8, mines: 8 },
@@ -11,14 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     function initGame(difficulty) {
-        if (gameLost) return; 
+        if (gameLost) return;
         boardSize = difficulties[difficulty].size;
         mineCount = difficulties[difficulty].mines;
-        currentDifficulty = difficulty; 
+        currentDifficulty = difficulty;
 
         board = generateBoard(boardSize, mineCount);
         gameBoard = document.getElementById('gameBoard');
-        gameBoard.innerHTML = ''; 
+        gameBoard.innerHTML = '';
         revealedCount = 0;
 
         gameBoard.style.gridTemplateColumns = `repeat(${boardSize}, 40px)`;
@@ -42,27 +42,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function resetBoard() {
-        gameLost = false; 
+        gameLost = false;
         initGame(currentDifficulty);
         alert(`Your game board has been cleared.`);
     }
 
     function revealCell(x, y) {
-        if (gameLost) return; 
+        if (gameLost) return;
         let cell = document.getElementById(`cell-${x}-${y}`);
         if (cell.classList.contains('revealed') || cell.classList.contains('flag')) {
             return;
         }
         cell.classList.add('revealed');
         revealedCount++;
-    
+
         if (board[x][y] === -1) {
-            gameLost = true; 
+            gameLost = true;
             cell.classList.add('mine');
-            cell.classList.add('mine-trigger'); 
+            cell.classList.add('mine-trigger');
+            revealMines();
             setTimeout(() => {
                 alert('You clicked on a mine and lost. Please reset the game board.');
-                revealMines();
             }, 100);
         } else {
             cell.innerText = board[x][y] > 0 ? board[x][y] : '';
@@ -71,17 +71,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 revealAdjacent(x, y);
             }
         }
-    
+
         if (revealedCount === boardSize * boardSize - mineCount) {
             setTimeout(() => {
                 alert('Congratulations! You have won the game.');
-                revealMines()
+                revealMines();
             }, 100);
         }
-    }    
+    }
 
     function flagCell(x, y) {
-        if (gameLost) return; 
+        if (gameLost) return;
         let cell = document.getElementById(`cell-${x}-${y}`);
         if (cell.classList.contains('revealed')) {
             return;
@@ -103,11 +103,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (!mineCell.classList.contains('revealed')) {
                         mineCell.classList.add('mine');
                     }
+                    if (mineCell.classList.contains('mine-trigger')) {
+                        mineCell.classList.add('mine-clicked');
+                    }
                 }
             }
         }
     }
-
 
     function generateBoard(size, mineCount) {
         let board = Array.from({ length: size }, () => Array(size).fill(0));
@@ -164,5 +166,5 @@ document.addEventListener('DOMContentLoaded', function() {
         resetBoard();
     });
 
-    initGame('easy'); 
+    initGame('easy');
 });

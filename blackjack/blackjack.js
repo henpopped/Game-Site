@@ -3,10 +3,28 @@ const CARD_VALUES = {
     'J': 10, 'Q': 10, 'K': 10, 'A': 11
 };
 
-const DECK = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+let deck, playerHand, dealerHand;
+let gameStarted = false;
 
-let playerHand = [];
-let dealerHand = [];
+function shuffleDeck() {
+    let tempDeck = [];
+    const suits = ['H', 'D', 'C', 'S'];
+    const values = Object.keys(CARD_VALUES);
+
+    for (const suit of suits) {
+        for (const value of values) {
+            tempDeck.push(value);
+        }
+    }
+
+    // Shuffle the deck
+    for (let i = tempDeck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [tempDeck[i], tempDeck[j]] = [tempDeck[j], tempDeck[i]];
+    }
+
+    return tempDeck;
+}
 
 function calculateHandValue(hand) {
     let sum = 0;
@@ -28,33 +46,34 @@ function calculateHandValue(hand) {
 }
 
 function dealCard() {
-    const randomIndex = Math.floor(Math.random() * DECK.length);
-    const card = DECK[randomIndex];
-    DECK.splice(randomIndex, 1);
-    return card;
+    return deck.pop();
 }
 
 function newGame() {
+    deck = shuffleDeck();
     playerHand = [];
     dealerHand = [];
-    DECK = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
     for (let i = 0; i < 2; i++) {
         playerHand.push(dealCard());
         dealerHand.push(dealCard());
     }
 
+    gameStarted = true;
     updateUI();
     checkBlackjack();
+    enableButtons();
 }
 
 function hit() {
+    if (!gameStarted) return;
     playerHand.push(dealCard());
     updateUI();
     checkPlayerBust();
 }
 
 function stand() {
+    if (!gameStarted) return;
     while (calculateHandValue(dealerHand) < 17) {
         dealerHand.push(dealCard());
     }
@@ -65,18 +84,18 @@ function stand() {
 
 function checkBlackjack() {
     if (calculateHandValue(playerHand) === 21) {
-        alert('Player has Blackjack! You win!');
-        newGame();
+        setTimeout(() => alert('Player has Blackjack! You win!'), 10);
+        endGame();
     } else if (calculateHandValue(dealerHand) === 21) {
-        alert('Dealer has Blackjack! Dealer wins.');
-        newGame();
+        setTimeout(() => alert('Dealer has Blackjack! Dealer wins.'), 10);
+        endGame();
     }
 }
 
 function checkPlayerBust() {
     if (calculateHandValue(playerHand) > 21) {
-        alert('Player busted! Dealer wins.');
-        newGame();
+        setTimeout(() => alert('Player busted! Dealer wins.'), 10);
+        endGame();
     }
 }
 
@@ -85,16 +104,16 @@ function checkWinner() {
     const dealerValue = calculateHandValue(dealerHand);
 
     if (playerValue > 21) {
-        alert('Player busted! Dealer wins.');
+        setTimeout(() => alert('Player busted! Dealer wins.'), 10);
     } else if (dealerValue > 21 || playerValue > dealerValue) {
-        alert('Player wins!');
+        setTimeout(() => alert('Player wins!'), 10);
     } else if (dealerValue > playerValue) {
-        alert('Dealer wins.');
+        setTimeout(() => alert('Dealer wins.'), 10);
     } else {
-        alert('It\'s a tie!');
+        setTimeout(() => alert('It\'s a tie!'), 10);
     }
 
-    newGame();
+    endGame();
 }
 
 function updateUI() {
@@ -105,8 +124,23 @@ function updateUI() {
     document.getElementById('dealer-value').textContent = `Dealer Value: ${calculateHandValue(dealerHand)}`;
 }
 
+function enableButtons() {
+    document.getElementById('hit-button').disabled = false;
+    document.getElementById('stand-button').disabled = false;
+}
+
+function disableButtons() {
+    document.getElementById('hit-button').disabled = true;
+    document.getElementById('stand-button').disabled = true;
+}
+
+function endGame() {
+    gameStarted = false;
+    disableButtons();
+}
+
 document.getElementById('new-game-button').addEventListener('click', newGame);
 document.getElementById('hit-button').addEventListener('click', hit);
 document.getElementById('stand-button').addEventListener('click', stand);
 
-newGame();
+disableButtons(); // Initially disable Hit and Stand buttons
