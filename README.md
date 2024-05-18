@@ -15,7 +15,7 @@ A simple minesweeper game where you can select three difficulties: Easy, Medium,
 
 ![Roulette Image](https://i.imgur.com/puqP876.png)
 
-![Roulette Demo](https://i.imgur.com/av0hLGx.mp4)
+![Roulette Demo](https://i.imgur.com/av0hLGx.gif)
 
 A roulette game with a horizontal spinner. The player begins with $1,000 balance and can bet on three colors with varying results: red or black for 2x return, or green for 14x return.
 
@@ -36,6 +36,7 @@ A sudoku puzzle with three difficulties: easy, medium, and hard with varying amo
 1. Clone the repository: 
 
 git clone https://github.com/yourusername/joeys-game-website.git
+
 cd joeys-game-website
 
 2. Open 'index.html' in a web browser to begin playing games. 
